@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <div class="count">
-      {{ count }}
+      <!-- {{ count }} -->
+      <!-- if you use vuex. if you want to access a property state, you must use 'state' dependencies like this = someStore.state.someProperty -->
+      {{ storeCounter.count }}
     </div>
     <div class="buttons">
       <button @click="decreaseCount">-</button>
@@ -17,6 +19,9 @@
 <script setup>
 // when using setup tag in script, don't need to return variables to expose in template
 import { ref, computed } from 'vue'
+import { useCounterStore } from '@/stores/counter'
+
+const storeCounter = useCounterStore()
 
 const count = ref(0)
 
