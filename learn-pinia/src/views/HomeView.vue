@@ -15,32 +15,37 @@
     </div>
     <hr />
     <div>
-      This counter is: {{ oddOrEven }}
+      <!-- This counter is: {{ oddOrEven }} -->
+
+      <!-- in vuex, we need to this instead to use getters = storeCounter.getters.oddOrEven -->
+      This counter is: {{ storeCounter.oddOrEven }}
     </div>
   </div>
 </template>
 
 <script setup>
 // when using setup tag in script, don't need to return variables to expose in template
-import { ref, computed } from 'vue'
+// import { ref, computed } from 'vue'
 import { useCounterStore } from '@/stores/counter'
 
 const storeCounter = useCounterStore()
 
-const count = ref(0)
 
-const increaseCount = () => {
-  count.value++
-}
+// no longer need this because we migrated to pinia store
+// const count = ref(0)
 
-const decreaseCount = () => {
-  count.value--
-}
+// const increaseCount = () => {
+//   count.value++
+// }
 
-const oddOrEven = computed(() => {
-  if (count.value % 2 === 0) return 'even'
-  return 'odd'
-})
+// const decreaseCount = () => {
+//   count.value--
+// }
+
+// const oddOrEven = computed(() => {
+//   if (count.value % 2 === 0) return 'even'
+//   return 'odd'
+// })
 
 </script>
 
