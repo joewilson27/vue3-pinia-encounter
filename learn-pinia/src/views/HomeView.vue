@@ -1,10 +1,12 @@
 <template>
   <div class="home">
-    <div class="count">
+    <!-- we move this to a child component -->
+    <!-- <div class="count"> -->
       <!-- {{ count }} -->
       <!-- if you use vuex. if you want to access a property state, you must use 'state' dependencies like this = someStore.state.someProperty -->
-      {{ storeCounter.count }}
-    </div>
+      <!-- {{ storeCounter.count }}
+    </div> -->
+    <Counter />
     <div class="buttons">
       <!-- <button @click="decreaseCount">-</button>
       <button @click="increaseCount">+</button> -->
@@ -33,6 +35,7 @@
 </template>
 
 <script setup>
+import Counter from '@/components/Counter.vue'
 // when using setup tag in script, don't need to return variables to expose in template
 // import { ref, computed } from 'vue'
 import { useCounterStore } from '@/stores/counter'
